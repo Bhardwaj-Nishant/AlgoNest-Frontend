@@ -167,7 +167,7 @@ function Signup() {
     try {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
-        options: `${import.meta.env.VITE_FRONTEND_URL}/dashboard`,
+        options: { redirectTo: window.location.origin + '/dashboard' },
       });
       if (error) throw error;
     } catch (err) {
