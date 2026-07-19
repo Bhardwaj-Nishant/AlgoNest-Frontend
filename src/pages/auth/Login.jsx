@@ -70,7 +70,7 @@ function Login() {
       const { error: oauthError } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: `${import.meta.env.VITE_FRONTEND_URL}/dashboard`,
+          redirectTo: window.location.origin + '/dashboard',
         },
       });
       if (oauthError) throw new Error(oauthError.message);
